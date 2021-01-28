@@ -46,6 +46,9 @@ void setup() {
   }
   if (DEBUG){
   Serial.println("READY!");
+  }else{
+    byte b = B11111111;
+    Serial.write(b);
   }
 }
 
