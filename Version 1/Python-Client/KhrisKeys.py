@@ -135,7 +135,7 @@ def attemptPortFind():
             startTime = int(time.time());
             #serialPort.close()
             serialPort = serial.Serial(portLoc , baudrate, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
-            while(((int(time.time()) - startTime) < 3) and not portConfirmed):
+            while(((int(time.time()) - startTime) < 2) and not portConfirmed):
                 
                 if(serialPort.in_waiting > 0):
                         # Read data out of the buffer until a carraige return / new line is found
