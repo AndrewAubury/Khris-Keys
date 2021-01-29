@@ -16,9 +16,7 @@ keyList = ["f1","f2","f3","f4",
 
 alwaysApply = ["f20"] 
 
-modKey1 = "f17"
-modKey2 = "f18"
-modKey3 = "f19"
+modKeys = ["f17", "f18", "f19"]
 
 debug = True
 
