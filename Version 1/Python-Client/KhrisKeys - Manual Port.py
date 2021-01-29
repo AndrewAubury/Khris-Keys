@@ -8,7 +8,7 @@ from time import sleep
 import time, sys
 import traceback
 
-
+port = "COM4" # depricated In new version
 keyList = ["f1","f2","f3","f4",
            "f5","f6","f7","f8",
            "f9","f10","f11","f12",
@@ -26,7 +26,7 @@ debug = True
 # DO NOT EDIT BELOW THIS POINT UNLESS YOU KNOW WHAT YOUR DOING
 
 baudrate = 115200
-port = "" # This is no longer manually set. The code will check for comports and auto assign once confrimed using "Identification Byte 11111111"
+
 serialPort = None;#serial.Serial(port , baudrate, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
 serialString = ""                           # Used to hold data coming over UART
 portConfirmed = False;
@@ -119,6 +119,7 @@ def runMain():
         raise Exception("Connection to the KhrisKeys COM port was not successful.") 
 
 def attemptPortFind():
+    return True
     global serialPort
     global portConfirmed
     global port
