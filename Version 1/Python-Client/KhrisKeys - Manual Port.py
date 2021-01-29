@@ -17,9 +17,9 @@ keyList = ["f1","f2","f3","f4",
 #alwaysApply = ["command","shift"] #MAC PREFIX
 alwaysApply = ["win","shift"] #WINDOWS PREFIX
 
-modKey1 = "home"
-modKey2 = "end"
-modKey3 = "insert"
+modKey1 = "capslock"
+modKey2 = "numlock"
+modKey3 = "scrolllock"
 
 debug = True
 

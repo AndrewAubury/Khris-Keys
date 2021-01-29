@@ -17,9 +17,9 @@ keyList = ["f1","f2","f3","f4",
 #alwaysApply = ["command","shift"] #MAC PREFIX
 alwaysApply = ["win","shift"] #WINDOWS PREFIX
 
-modKey1 = "home"
-modKey2 = "end"
-modKey3 = "insert"
+modKey1 = "capslock"
+modKey2 = "numlock"
+modKey3 = "scrolllock"
 
 debug = True
 
@@ -46,7 +46,7 @@ def pressHotkeys(buttonId, modId):
     hotkeyArgs.extend(alwaysApply)
     hotkeyArgs.append(keyList[buttonId])
     print(str(hotkeyArgs))
-    hotkey(*hotkeyArgs)
+    hotkey(*hotkeyArgs, interval=0.01)
     #for key in hotkeyArgs:
     #    pyautogui.keyDown(key)
     #    printDebug("Pressing: "+key)
