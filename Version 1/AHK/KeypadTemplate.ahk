@@ -1,3 +1,18 @@
+Home::
+	KeyWait, Home
+	If (A_PriorKey="Home")
+		Send {Home}
+Return
+End::
+	KeyWait, End
+	If (A_PriorKey="End")
+		Send {End}
+Return
+Insert::
+	KeyWait, Insert
+	If (A_PriorKey="Insert")
+		Send {Insert}
+Return
 
 #If, GetKeyState("Home") && GetKeyState("End") && GetKeyState("Insert") ;Layer 7
 #+F1::Send, L7
