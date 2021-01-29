@@ -17,9 +17,9 @@ keyList = ["f1","f2","f3","f4",
 #alwaysApply = ["command","shift"] #MAC PREFIX
 alwaysApply = ["win","shift"] #WINDOWS PREFIX
 
-modKey1 = "capslock"
-modKey2 = "numlock"
-modKey3 = "scrolllock"
+modKey1 = "home"
+modKey2 = "end"
+modKey3 = "insert"
 
 debug = True
 
@@ -46,16 +46,16 @@ def pressHotkeys(buttonId, modId):
     hotkeyArgs.extend(alwaysApply)
     hotkeyArgs.append(keyList[buttonId])
     print(str(hotkeyArgs))
-    #hotkey(*hotkeyArgs)
-    for key in hotkeyArgs:
-        pyautogui.keyDown(key)
-        printDebug("Pressing: "+key)
-        sleep(0.05)
+    hotkey(*hotkeyArgs)
+    #for key in hotkeyArgs:
+    #    pyautogui.keyDown(key)
+    #    printDebug("Pressing: "+key)
+    #    sleep(0.05)
     #sleep(0.05)
-    for key in hotkeyArgs[::-1]:
-        pyautogui.keyUp(key)
-        printDebug("Lifting: "+key)
-        sleep(0.05)
+    #for key in hotkeyArgs[::-1]:
+    #    pyautogui.keyUp(key)
+    #    printDebug("Lifting: "+key)
+    #    sleep(0.05)
 
 def shouldUseMod(totalModId, checkId):
     mods = decodeModID(totalModId)
