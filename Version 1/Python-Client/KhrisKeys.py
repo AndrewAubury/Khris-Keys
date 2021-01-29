@@ -28,11 +28,11 @@ serialPort = None;#serial.Serial(port , baudrate, bytesize=8, timeout=2, stopbit
 serialString = ""                           # Used to hold data coming over UART
 portConfirmed = False;
 shouldShutdown = False;
-def pressHotkeys(buttonId, modId):
+def pressHotkeys(buttonId, modID):
     hotkeyArgs = [];
 
     #add mod keys which decodeModID determines as appropriate
-    hotkeyArgs.extend(filter(modKeys, decodeModID(modId)))
+    hotkeyArgs.extend(filter(decodeModID(modID), modKeys))
 
     hotkeyArgs.extend(alwaysApply)
 

@@ -32,7 +32,7 @@ def pressHotkeys(buttonId, modId):
     hotkeyArgs = [];
 
     #add mod keys which decodeModID determines as appropriate
-    hotkeyArgs.extend(filter(modKeys, decodeModID(modId)))
+    hotkeyArgs.extend(filter(decodeModID(modID), modKeys))
 
     hotkeyArgs.extend(alwaysApply)
 
