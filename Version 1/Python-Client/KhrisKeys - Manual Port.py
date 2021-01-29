@@ -27,7 +27,7 @@ debug = True
 
 baudrate = 115200
 
-serialPort = None;#serial.Serial(port , baudrate, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
+serialPort = serial.Serial(port , baudrate, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
 serialString = ""                           # Used to hold data coming over UART
 portConfirmed = False;
 shouldShutdown = False;
