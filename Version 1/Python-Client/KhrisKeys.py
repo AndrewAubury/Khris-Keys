@@ -14,12 +14,11 @@ keyList = ["f1","f2","f3","f4",
            "f9","f10","f11","f12",
            "f13","f14","f15","f16"]
 
-#alwaysApply = ["command","shift"] #MAC PREFIX
-alwaysApply = ["f20","shift"] #WINDOWS PREFIX
+alwaysApply = ["f20"] 
 
-modKey1 = "capslock"
-modKey2 = "numlock"
-modKey3 = "scrolllock"
+modKey1 = "f17"
+modKey2 = "f18"
+modKey3 = "f19"
 
 debug = True
 
@@ -33,20 +32,15 @@ portConfirmed = False;
 shouldShutdown = False;
 def pressHotkeys(buttonId, modId):
     hotkeyArgs = [];
-    useMod1 = shouldUseMod(modId, 1);
-    useMod2 = shouldUseMod(modId, 2);
-    useMod3 = shouldUseMod(modId, 3);
-    
-    if(useMod1):
-        hotkeyArgs.append(modKey1)
-    if(useMod2):
-        hotkeyArgs.append(modKey2)
-    if(useMod3):
-        hotkeyArgs.append(modKey3)
+
+    #add mod keys which decodeModID determines as appropriate
+    hotkeyArgs.extend(filter(modKeys, decodeModID(modId)))
+
     hotkeyArgs.extend(alwaysApply)
+
     hotkeyArgs.append(keyList[buttonId])
-    print(str(hotkeyArgs))
-    hotkey(*hotkeyArgs, interval=0.01)
+    printDebug(str(hotkeyArgs))
+    hotkey(*hotkeyArgs)
     #for key in hotkeyArgs:
     #    pyautogui.keyDown(key)
     #    printDebug("Pressing: "+key)
@@ -57,33 +51,11 @@ def pressHotkeys(buttonId, modId):
     #    printDebug("Lifting: "+key)
     #    sleep(0.05)
 
-def shouldUseMod(totalModId, checkId):
-    mods = decodeModID(totalModId)
-    return mods[checkId-1]
-
 def decodeModID(modID):
     output = [False, False, False]
-    if(modID == 0):
-        return output
-    if(modID == 1):
-        output[0] = True
-    if(modID == 2):
-        output[1] = True
-    if(modID == 3):
-        output[2] = True
-    if(modID == 4):
-        output[0] = True
-        output[1] = True
-    if(modID == 5):
-        output[0] = True
-        output[2] = True
-    if(modID == 6):
-        output[1] = True
-        output[2] = True
-    if(modID == 7):
-        output[0] = True
-        output[1] = True
-        output[2] = True
+    output[0] = (modID - 1) % 2 == 0
+    output[1] = ((modID//2) - 1) % 2 == 0
+    output[2] = ((modID//4) - 1) % 2 == 0
     return output
 
 def printDebug(str):
@@ -159,7 +131,7 @@ def attemptPortFind():
     return portConfirmed
 
 
-def enteryPoint():
+def entryPoint():
     global serialPort
     global shouldShutdown
     global portConfirmed
@@ -179,7 +151,7 @@ def enteryPoint():
         serialPort.close()
         serialPort = serial.Serial(port , baudrate, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
         #serialPort.open()
-        enteryPoint()
+        entryPoint()
     except KeyboardInterrupt:
         print("Shutting down gracefully!")
         shouldShutdown = True
@@ -191,4 +163,4 @@ def enteryPoint():
         track = traceback.format_exc()
         print(track)
 
-enteryPoint()
+entryPoint()
