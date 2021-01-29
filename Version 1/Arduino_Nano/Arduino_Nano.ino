@@ -210,8 +210,8 @@ int getModifier(){
   if(!tc && !mc && !bc){ return 0;}
   if(tc && !mc && !bc){ return 1;}
   if(!tc && mc && !bc){ return 2;}
-  if(!tc && !mc && bc){ return 3;}
-  if(tc && mc && !bc){ return 4;}
+  if(tc && mc && !bc){ return 3;}
+  if(!tc && !mc && bc){ return 4;}
   if(tc && !mc && bc){ return 5;}
   if(!tc && mc && bc){ return 6;}
   if(tc && mc && bc){ return 7;}
