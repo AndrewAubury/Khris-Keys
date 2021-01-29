@@ -15,7 +15,7 @@ keyList = ["f1","f2","f3","f4",
            "f13","f14","f15","f16"]
 
 #alwaysApply = ["command","shift"] #MAC PREFIX
-alwaysApply = ["win","shift"] #WINDOWS PREFIX
+alwaysApply = ["f20","shift"] #WINDOWS PREFIX
 
 modKey1 = "capslock"
 modKey2 = "numlock"

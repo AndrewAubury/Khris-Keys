@@ -1,18 +1,18 @@
 
 
 #If, GetKeyState("F17") && GetKeyState("F18") && GetKeyState("F19") ;Layer 7
-#+F1::Send, L7
+F20 & +F1::Send, L7{Enter}
 #If, GetKeyState("F17") && GetKeyState("F19") ;Layer 6
-#+F1::Send, L6
+F20 & +F1::Send, L6{Enter}
 #If, GetKeyState("F18") && GetKeyState("F19") ;Layer 5
-#+F1::Send, L5
+F20 & +F1::Send, L5{Enter}
 #If, GetKeyState("F17") && GetKeyState("F18") ;Layer 4
-#+F1::Send L4
+F20 & +F1::Send L4{Enter}
 #If, && GetKeyState("F19") ;Layer 3
-#+F1::Send, L3
+F20 & +F1::Send, L3{Enter}
 #If, GetKeyState("F18") ;Layer 2
-#+F1::Send, L2
+F20 & +F1::Send, L2{Enter}
 #If, GetKeyState("F17") ;Layer 1
-#+F1::Send, L1
-#If ;layer 0WS
-#+F1::Send, L0
+F20 & +F1::Send, L1{Enter}
+#If ;layer 0
+F20 & +F1::Send, L0{Enter}
