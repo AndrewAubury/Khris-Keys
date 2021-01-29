@@ -32,16 +32,18 @@ serialString = ""                           # Used to hold data coming over UART
 portConfirmed = False;
 shouldShutdown = False;
 def pressHotkeys(buttonId, modId):
-    hotkeyArgs = alwaysApply.copy();
+    hotkeyArgs = [];
     useMod1 = shouldUseMod(modId, 1);
     useMod2 = shouldUseMod(modId, 2);
     useMod3 = shouldUseMod(modId, 3);
+    
     if(useMod1):
         hotkeyArgs.append(modKey1)
     if(useMod2):
         hotkeyArgs.append(modKey2)
     if(useMod3):
         hotkeyArgs.append(modKey3)
+    hotkeyArgs.extend(alwaysApply)
     hotkeyArgs.append(keyList[buttonId])
     print(str(hotkeyArgs))
     #hotkey(*hotkeyArgs)
