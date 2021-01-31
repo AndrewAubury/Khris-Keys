@@ -39,6 +39,7 @@ def pressHotkeys(buttonId, modID):
     hotkeyArgs.append(keyList[buttonId])
     printDebug(str(hotkeyArgs))
     hotkey(*hotkeyArgs)
+
     #for key in hotkeyArgs:
     #    pyautogui.keyDown(key)
     #    printDebug("Pressing: "+key)
